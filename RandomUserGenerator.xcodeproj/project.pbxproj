@@ -12,6 +12,7 @@
 		98CA83D129B00089005DCB17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98CA83D029B00089005DCB17 /* Assets.xcassets */; };
 		98CA83D429B00089005DCB17 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98CA83D329B00089005DCB17 /* Preview Assets.xcassets */; };
 		98CA83DB29B000C6005DCB17 /* RandomUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CA83DA29B000C6005DCB17 /* RandomUserController.swift */; };
+		98CA83DD29B01299005DCB17 /* DetailRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CA83DC29B01299005DCB17 /* DetailRows.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		98CA83D029B00089005DCB17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98CA83D329B00089005DCB17 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		98CA83DA29B000C6005DCB17 /* RandomUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserController.swift; sourceTree = "<group>"; };
+		98CA83DC29B01299005DCB17 /* DetailRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRows.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				98CA83CC29B00086005DCB17 /* RandomUserGeneratorApp.swift */,
 				98CA83DA29B000C6005DCB17 /* RandomUserController.swift */,
 				98CA83CE29B00086005DCB17 /* ContentView.swift */,
+				98CA83DC29B01299005DCB17 /* DetailRows.swift */,
 				98CA83D029B00089005DCB17 /* Assets.xcassets */,
 				98CA83D229B00089005DCB17 /* Preview Content */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98CA83CF29B00086005DCB17 /* ContentView.swift in Sources */,
+				98CA83DD29B01299005DCB17 /* DetailRows.swift in Sources */,
 				98CA83CD29B00086005DCB17 /* RandomUserGeneratorApp.swift in Sources */,
 				98CA83DB29B000C6005DCB17 /* RandomUserController.swift in Sources */,
 			);

@@ -30,17 +30,18 @@ struct ContentView: View {
                     Spacer()
                     
                     GeometryReader { proxy in
-                        let width = proxy.frame(in: .global).width
                         VStack {
-                            VStack {
-                                HStack {
-                                    Text("Name")
-                                    Spacer()
-                                    Text(user.name.fullName)
-                                }
-                                Divider()
+                            Group {
+                                DetailRows(field: "Name", detail: user.name.fullName)
+                                DetailRows(field: "Gender", detail: user.gender.capitalized)
+                                DetailRows(field: "Email", detail: user.email)
+                                DetailRows(field: "Date of Birth", detail: user.dob.date.formatted(date: .long, time: .omitted))
+                                DetailRows(field: "Phone Number", detail: user.phone)
+                                DetailRows(field: "Cell", detail: user.cell)
+                                DetailRows(field: "Street", detail: user.location.street.fullStreet)
+                                DetailRows(field: "City", detail: user.location.city)
+                                DetailRows(field: "Country", detail: user.location.country)
                             }
-                            .padding()
                         }
                         .padding()
                         .frame(maxWidth: .infinity)
