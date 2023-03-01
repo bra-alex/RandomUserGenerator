@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct Results: Codable{
+    let results: [User]
+}
+
 struct User: Codable{
     let dob: DOB
     let name: Name
@@ -31,6 +35,19 @@ struct User: Codable{
         let state: String
         let country: String
         let postcode: String
+        
+        init(from decoder: Decoder) throws {
+            let container: KeyedDecodingContainer<User.Location.CodingKeys> = try decoder.container(keyedBy: User.Location.CodingKeys.self)
+            self.street = try container.decode(User.Location.Street.self, forKey: User.Location.CodingKeys.street)
+            self.city = try container.decode(String.self, forKey: User.Location.CodingKeys.city)
+            self.state = try container.decode(String.self, forKey: User.Location.CodingKeys.state)
+            self.country = try container.decode(String.self, forKey: User.Location.CodingKeys.country)
+            if let code = try? container.decode(Int.self, forKey: User.Location.CodingKeys.postcode) {
+                self.postcode = String(code)
+                    } else {
+                        self.postcode = try container.decode(String.self, forKey: User.Location.CodingKeys.postcode)
+                    }
+        }
         
         struct Street: Codable{
             let number: Int
@@ -63,16 +80,22 @@ class RandomUserController: ObservableObject {
         do{
             let (data, response) = try await URLSession.shared.data(from: url)
             let res = response as! HTTPURLResponse
+            print(res.statusCode)
+            
+            let decoder = JSONDecoder()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            decoder.dateDecodingStrategy = .formatted(formatter)
             
             if res.statusCode == 200{
-                if let decodedData = try? JSONDecoder().decode([String: [User]].self, from: data){
+                let decodedData = try decoder.decode(Results.self, from: data)
                     DispatchQueue.main.async {
-                        self.user = decodedData["results"]?.first
+                        self.user = decodedData.results.first
                     }
-                }
+                
             }
         } catch {
-            print("Could't fetch data")
+            print(String(describing: error))
         }
         
     }
