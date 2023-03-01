@@ -92,7 +92,6 @@ class RandomUserController: ObservableObject {
         do{
             let (data, response) = try await URLSession.shared.data(from: url)
             let res = response as! HTTPURLResponse
-            print(res.statusCode)
             
             let decoder = JSONDecoder()
             let formatter = DateFormatter()
