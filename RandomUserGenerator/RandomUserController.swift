@@ -27,6 +27,10 @@ struct User: Codable{
         let title: String
         let first: String
         let last: String
+        
+        var fullName: String{
+            "\(title) \(first) \(last)"
+        }
     }
     
     struct Location: Codable{
@@ -52,6 +56,10 @@ struct User: Codable{
         struct Street: Codable{
             let number: Int
             let name: String
+            
+            var fullStreet: String{
+                "\(number) \(name)"
+            }
         }
     }
     
