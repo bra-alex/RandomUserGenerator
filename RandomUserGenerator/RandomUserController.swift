@@ -80,6 +80,10 @@ class RandomUserController: ObservableObject {
     @Published var user: User?
     
     func loadData() async {
+        DispatchQueue.main.async {
+            self.user = nil
+        }
+        
         guard let url = URL(string: "https://randomuser.me/api/") else {
             print("Couldn't parse url")
             return
